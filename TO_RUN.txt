@@ -1,0 +1,10 @@
+#Train
+allennlp train config/small.json --serialization-dir logs/main --include-package library
+
+
+# Predict
+allennlp predict logs/main/model.tar.gz data/bn_pos_corpus.txt --output-file data/predict.txt --predictor simple --include-package library --use-dataset-reader
+
+#Evaluation
+
+allennlp evaluate logs/main/model.tar.gz data/test_gold.txt --include-package library
